@@ -6,15 +6,13 @@ export default function HorizontalScroll({
   children,
   className = '',
   showArrows = true,
-  gap = '1rem',
-  variant = 'default',
-  scrollStep = null,
+  gap = '1.25rem',
 }) {
-  const { trackRef, scrollLeft, scrollRight } = useHorizontalScroll(scrollStep);
+  const { trackRef, scrollLeft, scrollRight } = useHorizontalScroll();
   const wrapperRef = useRef(null);
 
   return (
-    <div className={`h-scroll-wrapper h-scroll-wrapper--${variant} ${className}`} ref={wrapperRef}>
+    <div className={`h-scroll-wrapper ${className}`} ref={wrapperRef}>
       {showArrows && (
         <>
           <button
@@ -35,11 +33,7 @@ export default function HorizontalScroll({
           </button>
         </>
       )}
-      <div
-        className={`h-scroll-track h-scroll-track--${variant}`}
-        ref={trackRef}
-        style={{ gap }}
-      >
+      <div className="h-scroll-track" ref={trackRef} style={{ gap }}>
         {children}
       </div>
     </div>

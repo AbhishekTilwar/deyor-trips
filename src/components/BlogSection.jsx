@@ -14,10 +14,10 @@ export default function BlogSection({ blogs }) {
           <h2 className="section-title">Our Travel Stories</h2>
         </div>
       </div>
-      <div className="container-fluid container-fluid--bleed">
-        <HorizontalScroll variant="blogs">
+      <div className="container-fluid">
+        <HorizontalScroll>
           {blogs.map((blog) => (
-            <article key={blog.id} className="blog-card section-animate" data-scroll-item>
+            <article key={blog.id} className="blog-card section-animate">
               <img src={blog.image} alt={blog.title} loading="lazy" />
               <div className="blog-body">
                 <div className="blog-meta">

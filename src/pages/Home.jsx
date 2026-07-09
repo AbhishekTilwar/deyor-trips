@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import Hero from '../components/Hero';
-import HeroReviewTicker from '../components/HeroReviewTicker';
-import Stats from '../components/Stats';
 import CategoryScroller from '../components/CategoryScroller';
 import FeaturedBanner from '../components/FeaturedBanner';
 import PromoCards from '../components/PromoCards';
@@ -39,8 +37,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <HeroReviewTicker />
-      <Stats />
       <CategoryScroller />
       <FeaturedBanner tour={featuredTour} />
       <PromoCards promos={promoCards} />
