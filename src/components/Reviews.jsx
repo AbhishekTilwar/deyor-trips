@@ -16,10 +16,10 @@ export default function Reviews() {
         </div>
       </div>
 
-      <div className="container-fluid">
-        <HorizontalScroll>
+      <div className="container-fluid container-fluid--bleed">
+        <HorizontalScroll variant="reviews">
           {reviews.map((review) => (
-            <div key={review.id} className="review-scroll-card section-animate">
+            <div key={review.id} className="review-scroll-card section-animate" data-scroll-item>
               <div className="review-scroll-image">
                 <img src={review.image} alt={review.tour} loading="lazy" />
               </div>

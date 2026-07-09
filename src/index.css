@@ -1930,6 +1930,74 @@ button {
   padding: 0 1.25rem;
 }
 
+.container-fluid--bleed {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Hero Review Ticker - JustWravel style */
+.hero-review-ticker {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.75rem 0;
+}
+
+.review-ticker-card {
+  flex: 0 0 min(85vw, 320px);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.875rem 1rem;
+}
+
+.review-ticker-header {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin-bottom: 0.5rem;
+}
+
+.review-ticker-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.review-ticker-header strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-secondary);
+  line-height: 1.2;
+}
+
+.review-ticker-stars {
+  display: flex;
+  gap: 1px;
+  color: var(--color-accent);
+  margin-top: 2px;
+}
+
+.review-ticker-card p {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* Horizontal Scroll */
 .h-scroll-wrapper {
   position: relative;
@@ -1942,7 +2010,14 @@ button {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 0.5rem 0 1.5rem;
+  padding: 0.5rem 1rem 1.25rem;
+  scroll-padding-inline: 1rem;
+}
+
+.h-scroll-wrapper--bleed .h-scroll-track,
+.container-fluid--bleed .h-scroll-track {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .h-scroll-track::-webkit-scrollbar {
@@ -1952,6 +2027,48 @@ button {
 .h-scroll-item {
   flex: 0 0 300px;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Variant: tour cards — ~2 visible on mobile, 4 scroll step on desktop */
+.h-scroll-track--tours .h-scroll-item {
+  flex: 0 0 300px;
+}
+
+/* Variant: collections */
+.h-scroll-track--collections .collection-card {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Variant: reviews */
+.h-scroll-track--reviews .review-scroll-card {
+  flex: 0 0 280px;
+}
+
+/* Variant: category pills */
+.h-scroll-track--category .category-pill {
+  flex: 0 0 100px;
+  scroll-snap-align: start;
+}
+
+/* Variant: promo */
+.h-scroll-track--promo .promo-card {
+  flex: 0 0 420px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Variant: blogs */
+.h-scroll-track--blogs .blog-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+}
+
+/* Variant: ticker */
+.h-scroll-track--ticker .review-ticker-card {
+  flex: 0 0 min(85vw, 320px);
 }
 
 .h-scroll-arrow {
@@ -2051,7 +2168,6 @@ button {
 }
 
 .category-pill {
-  flex: 0 0 110px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
@@ -2200,8 +2316,8 @@ button {
 }
 
 .promo-card {
-  flex: 0 0 420px;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -2307,8 +2423,8 @@ button {
 }
 
 .collection-card {
-  flex: 0 0 220px;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: transform var(--transition);
@@ -2388,8 +2504,8 @@ button {
 
 /* Review Horizontal Scroll Cards */
 .review-scroll-card {
-  flex: 0 0 280px;
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   background: var(--color-surface);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -2465,7 +2581,6 @@ button {
 
 /* Blog in horizontal scroll */
 .blog-section .blog-card {
-  flex: 0 0 320px;
   scroll-snap-align: start;
 }
 
@@ -2590,8 +2705,62 @@ button {
     padding: 2rem 0;
   }
 
+  .stats {
+    padding: 1.5rem 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.35rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+
+  .hero-review-ticker {
+    padding: 0.5rem 0;
+  }
+
+  .h-scroll-track--ticker .review-ticker-card {
+    flex: 0 0 calc(88vw - 2rem);
+  }
+
+  /* JW-style: ~2 tour cards visible, snap scroll */
+  .h-scroll-track--tours .h-scroll-item {
+    flex: 0 0 calc(50vw - 1.35rem);
+  }
+
+  .h-scroll-track--collections .collection-card {
+    flex: 0 0 calc(44vw - 0.75rem);
+  }
+
+  .h-scroll-track--reviews .review-scroll-card {
+    flex: 0 0 calc(72vw - 1.5rem);
+  }
+
+  .h-scroll-track--category .category-pill {
+    flex: 0 0 80px;
+  }
+
+  .h-scroll-track--promo .promo-card {
+    flex: 0 0 calc(92vw - 2rem);
+  }
+
+  .h-scroll-track--blogs .blog-card {
+    flex: 0 0 calc(78vw - 1.5rem);
+  }
+
+  .h-scroll-arrow {
+    display: none;
+  }
+
   .category-pill {
-    flex: 0 0 88px;
+    flex: 0 0 80px;
   }
 
   .category-pill-image {
@@ -2683,10 +2852,6 @@ button {
     justify-content: center;
   }
 
-  .promo-card {
-    flex: 0 0 min(88vw, 300px);
-  }
-
   .promo-card-overlay {
     padding: 1rem;
   }
@@ -2704,14 +2869,6 @@ button {
     font-size: 1rem;
   }
 
-  .h-scroll-item {
-    flex: 0 0 min(78vw, 260px);
-  }
-
-  .collection-card {
-    flex: 0 0 170px;
-  }
-
   .collection-card-overlay {
     padding: 0.875rem;
   }
@@ -2724,12 +2881,12 @@ button {
     font-size: 0.72rem;
   }
 
-  .h-scroll-arrow {
-    display: none;
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .container,
-  .container-fluid {
+  .container-fluid:not(.container-fluid--bleed) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -2741,10 +2898,6 @@ button {
   .filter-tab {
     padding: 0.45rem 1rem;
     font-size: 0.8rem;
-  }
-
-  .review-scroll-card {
-    flex: 0 0 min(72vw, 220px);
   }
 
   .review-scroll-image {
@@ -2809,10 +2962,6 @@ button {
   .floating-btn {
     width: 50px;
     height: 50px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .review-card {

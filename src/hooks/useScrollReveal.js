@@ -63,15 +63,36 @@ export function useSectionReveal(options = {}) {
   return ref;
 }
 
-export function useHorizontalScroll() {
+function getDefaultScrollStep() {
+  if (typeof window === 'undefined') return 4;
+  if (window.innerWidth < 640) return 2;
+  if (window.innerWidth < 1024) return 3;
+  return 4;
+}
+
+export function useHorizontalScroll(scrollStep = null) {
   const trackRef = useRef(null);
+
+  const getScrollAmount = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return 0;
+
+    const firstItem = track.querySelector('[data-scroll-item]') || track.firstElementChild;
+    if (!firstItem) return track.clientWidth * 0.85;
+
+    const style = getComputedStyle(track);
+    const gap = parseFloat(style.gap) || parseFloat(style.columnGap) || 20;
+    const itemWidth = firstItem.getBoundingClientRect().width;
+    const step = scrollStep ?? getDefaultScrollStep();
+
+    return (itemWidth + gap) * step;
+  }, [scrollStep]);
 
   const scroll = useCallback((direction) => {
     const track = trackRef.current;
     if (!track) return;
-    const amount = track.clientWidth * 0.75;
-    track.scrollBy({ left: direction * amount, behavior: 'smooth' });
-  }, []);
+    track.scrollBy({ left: direction * getScrollAmount(), behavior: 'smooth' });
+  }, [getScrollAmount]);
 
   return { trackRef, scrollLeft: () => scroll(-1), scrollRight: () => scroll(1) };
 }

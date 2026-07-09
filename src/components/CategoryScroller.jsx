@@ -14,13 +14,14 @@ export default function CategoryScroller() {
           <h2 className="section-title">Where do you want to go?</h2>
         </div>
       </div>
-      <div className="container-fluid">
-        <HorizontalScroll showArrows={false}>
+      <div className="container-fluid container-fluid--bleed">
+        <HorizontalScroll variant="category" showArrows={false}>
           {categoryPills.map((cat, i) => (
             <Link
               key={`${cat.id}-${cat.label}-${i}`}
               to={`/tours?category=${cat.id}`}
               className="category-pill section-animate"
+              data-scroll-item
             >
               <div className="category-pill-image">
                 <img src={cat.image} alt={cat.label} loading="lazy" />

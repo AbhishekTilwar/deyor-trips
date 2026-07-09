@@ -9,10 +9,10 @@ export default function PromoCards({ promos }) {
 
   return (
     <section className="promo-section" ref={sectionRef}>
-      <div className="container-fluid">
-        <HorizontalScroll>
+      <div className="container-fluid container-fluid--bleed">
+        <HorizontalScroll variant="promo" showArrows={false}>
           {promos.map((promo) => (
-            <Link key={promo.id} to={promo.link} className="promo-card section-animate">
+            <Link key={promo.id} to={promo.link} className="promo-card section-animate" data-scroll-item>
               <img src={promo.image} alt={promo.title} loading="lazy" />
               <div className="promo-card-overlay">
                 <span className="promo-badge">{promo.badge}</span>

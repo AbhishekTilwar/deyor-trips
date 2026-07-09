@@ -21,13 +21,14 @@ export default function CollectionCarousel({ collections }) {
         </div>
       </div>
 
-      <div className="container-fluid">
-        <HorizontalScroll>
+      <div className="container-fluid container-fluid--bleed">
+        <HorizontalScroll variant="collections">
           {collections.map((col) => (
             <Link
               key={col.id}
               to={`/tours?category=${col.category}`}
               className="collection-card section-animate"
+              data-scroll-item
             >
               <div className="collection-card-image">
                 <img src={col.image} alt={col.name} loading="lazy" />

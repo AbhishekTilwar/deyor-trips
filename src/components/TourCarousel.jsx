@@ -48,10 +48,10 @@ export default function TourCarousel({
         )}
       </div>
 
-      <div className="container-fluid">
-        <HorizontalScroll>
+      <div className="container-fluid container-fluid--bleed">
+        <HorizontalScroll variant="tours">
           {tours.map((tour) => (
-            <div key={tour.id} className="h-scroll-item section-animate">
+            <div key={tour.id} className="h-scroll-item section-animate" data-scroll-item>
               <TourCard tour={tour} />
             </div>
           ))}
