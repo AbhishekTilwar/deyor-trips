@@ -1,5 +1,5 @@
 import { Shield, Heart, Award, Users } from 'lucide-react';
-import { whyChooseUs, awards } from '../data/tours';
+import { whyChooseUs, pressLogos } from '../data/tours';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const iconMap = {
@@ -38,10 +38,16 @@ export default function WhyChooseUs() {
         </div>
 
         <div className="awards-section section-animate">
-          <h3 className="awards-title">Awards, Affiliations & Press Coverage</h3>
-          <div className="awards-list">
-            {awards.map((award) => (
-              <span key={award} className="award-badge">{award}</span>
+          <h3 className="awards-title">
+            <span className="awards-title-line" />
+            Awards, Affiliations &amp; Press Coverage
+            <span className="awards-title-line" />
+          </h3>
+          <div className="awards-grid">
+            {pressLogos.map((logo) => (
+              <div key={logo.id} className="award-logo-item">
+                <img src={logo.image} alt={logo.name} loading="lazy" />
+              </div>
             ))}
           </div>
         </div>

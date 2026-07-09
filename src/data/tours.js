@@ -591,13 +591,18 @@ export const whyChooseUs = [
   },
 ];
 
-export const awards = [
-  'Forbes 30 Under 30 Asia',
-  'Shark Tank India Season 2',
-  'The Economic Times',
-  'Business World',
-  'Travel Daily',
+export const pressLogos = [
+  { id: 'forbes', name: 'Forbes 30 Under 30 Asia', image: '/press/forbes.png' },
+  { id: 'outlook', name: 'Outlook Business', image: '/press/outlook.png' },
+  { id: 'economic-times', name: 'The Economic Times', image: '/press/economic-times.png' },
+  { id: 'businessworld', name: 'BW Businessworld', image: '/press/businessworld.jpg' },
+  { id: 'travel-daily', name: 'Travel Daily', image: '/press/travel-daily.png' },
+  { id: 'plunge-daily', name: 'The Plunge Daily', image: '/press/plunge-daily.svg' },
+  { id: 'news-minute', name: 'The News Minute', image: '/press/news-minute.svg' },
+  { id: 'yourstory', name: 'YourStory', image: '/press/yourstory.svg' },
 ];
+
+export const awards = pressLogos.map((logo) => logo.name);
 
 export function formatPrice(price) {
   return `₹${price.toLocaleString('en-IN')}`;

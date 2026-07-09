@@ -1149,17 +1149,66 @@ button {
 /* Awards */
 .awards-section {
   text-align: center;
-  padding: 2rem;
-  background: var(--color-surface);
+  padding: 2.5rem 1.5rem;
+  margin-top: 2.5rem;
+  background: #fff;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
 }
 
 .awards-title {
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--color-secondary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+}
+
+.awards-title-line {
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 1.5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.award-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 160px;
+  height: 64px;
+  padding: 0.25rem;
+}
+
+.award-logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: opacity var(--transition), filter var(--transition);
+}
+
+.award-logo-item:hover img {
+  opacity: 1;
+  filter: grayscale(0%);
 }
 
 .awards-list {
@@ -3050,6 +3099,26 @@ button {
 
   .why-usps {
     grid-template-columns: 1fr;
+  }
+
+  .awards-title {
+    font-size: 0.68rem;
+    gap: 0.625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .awards-title-line {
+    max-width: 40px;
+  }
+
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem 1rem;
+  }
+
+  .award-logo-item {
+    max-width: 130px;
+    height: 52px;
   }
 
   .newsletter-card {
