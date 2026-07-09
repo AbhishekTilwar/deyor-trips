@@ -2865,19 +2865,18 @@ button {
   }
 
   .category-pill {
-    flex: 0 0 88px;
+    flex: 0 0 100px;
   }
 
   .category-pill-image {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
   }
 
   .category-pill-label {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     line-height: 1.2;
-    max-width: 80px;
-    word-break: break-word;
+    max-width: 90px;
   }
 
   .tour-card-body {
